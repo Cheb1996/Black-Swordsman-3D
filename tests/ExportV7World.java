@@ -1,0 +1,3 @@
+package com.danil.blackswordsman;
+import java.io.*;
+public final class ExportV7World {public static void main(String[] args)throws Exception{DataOutputStream out=new DataOutputStream(new BufferedOutputStream(new FileOutputStream("build/v7-world.bin.part")));int n=241;out.writeInt(n);for(int z=0;z<n;z++)for(int x=0;x<n;x++){float wx=(x/(n-1f)*2-1)*GameWorld.OCEAN_HALF,wz=(1-z/(n-1f)*2)*GameWorld.OCEAN_HALF;out.writeFloat(WorldLayout.height(0,wx,wz));out.writeFloat(WaterField.depth(0,wx,wz));out.writeFloat(RegionLayout.desert(wx,wz));out.writeFloat(RegionLayout.mountains(wx,wz));}out.close();if(!new File("build/v7-world.bin.part").renameTo(new File("build/v7-world.bin")))throw new IOException("Map rename failed");}}

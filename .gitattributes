@@ -1,0 +1,12 @@
+* text=auto
+*.sh text eol=lf
+*.py text eol=lf
+*.java text eol=lf
+*.apk binary
+*.jar binary
+*.bin binary
+*.rgba binary
+*.png binary
+*.wav binary
+toolchain/usr/bin/* binary
+toolchain/usr/lib/** binary

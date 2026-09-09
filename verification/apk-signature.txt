@@ -1,0 +1,16 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=Black Swordsman Fan Build, OU=Fan Game, O=Danil, C=FI
+Signer #1 certificate SHA-256 digest: a5514bae51f56adba34bb9ea6573173487854a1709ff909d461e3f629fa916e2
+Signer #1 certificate SHA-1 digest: 3af871342447f0e686f513430ffa44a594674864
+Signer #1 certificate MD5 digest: 54947701dc73162e7f19fda1c86b641a
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 2048
+Signer #1 public key SHA-256 digest: c9e86e35482f59fe1ed03d95a787b739fe43decc66882cdafe2826a9e624684d
+Signer #1 public key SHA-1 digest: 378c9508e1acf6e77710cafedcb77b229a389e40
+Signer #1 public key MD5 digest: 1e129edb99c31aa26fb2d96073416d04

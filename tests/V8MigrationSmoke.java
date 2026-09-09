@@ -1,0 +1,5 @@
+package com.danil.blackswordsman;
+import java.io.*;
+public final class V8MigrationSmoke {
+ public static void main(String[] args)throws Exception{File f=new File("verification/v7-checkpoint.bin");DataInputStream in=new DataInputStream(new FileInputStream(f));byte[] data=new byte[(int)f.length()];in.readFully(data);in.close();GameWorld w=new GameWorld(new GameInput(),new V6RegressionSmoke.Motion(),new V6RegressionSmoke.Store());if(!SnapshotCodec.restore(w,data)||w.worldVersion!=8||w.player.hp!=137||w.effects.speedTime!=14||w.quest.stage!=1||w.surreal.props.get(100).body.x!=42.5f||w.encounters.landings.get(0).cycles!=3||w.mushrooms==null||w.flora==null)throw new AssertionError("Actual v7 migration");w.flora.update(w,.01f);w.mushrooms.update(w,.01f);if(w.player.flying||w.flora.plants.isEmpty())throw new AssertionError("Migrated fields initialize safely");System.out.println("V8MigrationSmoke OK: genuine archived v7 checkpoint, progress/physical props/UFO cycles/buffs preserved, new flora initialized");}
+}

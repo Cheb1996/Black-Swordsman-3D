@@ -1,0 +1,10 @@
+Pinned build dependencies verified
+Baked 500 toy/pickup meshes and 24 material maps (512 square)
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+/workspace/scratch/e0bcd2ee1470/BerserkBlackSwordsman3D/dist/BlackSwordsman3D-v8.0.apk

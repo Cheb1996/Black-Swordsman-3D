@@ -1,0 +1,28 @@
+V8AnimationSmoke OK: blocked locomotion, landing, fixed-length IK, 34 skins / 6 states, material maps, bounded 3D cloud inputs
+V8NatureSmoke OK: 48 distinct flora, forest density, region bias, collection/regrowth, 8 powers, collision-aware flight, forces, peace, pause and save
+V8MigrationSmoke OK: genuine archived v7 checkpoint, progress/physical props/UFO cycles/buffs preserved, new flora initialized
+LegacyMigrationSmoke OK: genuine archived v6 checkpoint -> v8, progress/props preserved, new content initialized, streaming and chapter reset
+V7WaterSmoke OK: 10x area, five lakes/oases, river, surrounding ocean, 240 floating toys + seven body kinds, swimming, particles, streamed drift, boat distribution
+V7CreaturesSmoke OK: 33 nature definitions, eight distinct abilities, neutral UFO descent/observation/ascent, save identity, v6 migration, wildlife, 24 places
+V6RegressionSmoke OK: clock, idle/reset/pause, checkpoints+CRC, capsule/wall/projectiles, stacking, actor support, weighted skin
+LogicSmoke OK: 9 chapters, combat, sensors, save
+ControlSmoke OK: all 25 HUD actions mapped
+MotionFilterSmoke OK: startup/noise cannot create forward drift
+StateButtonSmoke OK: menu, story, upgrades, pause, retry and ending
+SkeletonSmoke OK: 16-bone humanoid/beast rigs and limb masks
+PhysicsSmoke OK: rigid bodies, gravity, puzzle, ragdoll, severing, weapon drop
+FullCampaign chapter 1 passed; frames=1532
+FullCampaign chapter 2 passed; frames=3033
+FullCampaign chapter 3 passed; frames=4329
+FullCampaign chapter 4 passed; frames=6642
+FullCampaign chapter 5 passed; frames=8216
+FullCampaign chapter 6 passed; frames=9836
+FullCampaign chapter 7 passed; frames=11650
+FullCampaign chapter 8 passed; frames=13548
+FullCampaign chapter 9 passed; frames=15787
+FullCampaignSmoke OK: walked 9 routes, operated 3 mechanisms, killed all waves, 9 exits, 8 pending upgrades, finale
+WorldStreamingSmoke OK: 898x898m, bounded chunks, dense forest, varied terrain
+PopulationSmoke OK: lore threats, peaceful fauna, Puck and astral creatures
+SurrealSmoke OK: 240 geometric identities, 218298 vertices, minimum 3 parts; 720 placements, streaming, pickups, timers, spells, portals, levitation
+AnomalySmoke OK: time stop, teleport, magnetism, shockwave, speed aura, physical projectiles
+ExplorationSmoke OK: tracking, serpent, astral switch, heavy lifting, connected bricks, frozen constructions, domino chain

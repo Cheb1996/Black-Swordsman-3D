@@ -1,0 +1,21 @@
+{
+  "apk": "BlackSwordsman3D-v8.0.apk",
+  "bytes": 23764010,
+  "sha256": "ea08a9c01e580746fd0ba82d75bdd9f382b281423fb7349db6817bd9beb5a92c",
+  "package": "com.danil.blackswordsman",
+  "version_code": 8,
+  "min_sdk": 24,
+  "target_sdk": 35,
+  "gles": "3.2",
+  "signature_compatible_with_v7": true,
+  "signer_sha256": "a5514bae51f56adba34bb9ea6573173487854a1709ff909d461e3f629fa916e2",
+  "baked_meshes": 500,
+  "audio_assets": 11,
+  "flora_meshes": 96,
+  "material_maps": 24,
+  "material_resolution": 512,
+  "zipalign": true,
+  "zip_integrity": true,
+  "dex_matches_compiled_source": true,
+  "physical_device_test": false
+}

@@ -1,0 +1,17 @@
+package com.danil.blackswordsman;
+import java.util.ArrayList;
+/** Repeating landings with persistent visitors. Their purpose is never explained or assigned to the player. */
+public final class UfoEncounters implements java.io.Serializable {
+ private static final long serialVersionUID=7L;
+ public static final class Landing implements java.io.Serializable {private static final long serialVersionUID=7L;public PhysicsWorld.Body ship;public final ArrayList<GameWorld.Actor> visitors=new ArrayList<GameWorld.Actor>();public int state,cycles;public float timer=3;}
+ public final ArrayList<Landing> landings=new ArrayList<Landing>();
+ public void reset(GameWorld w){landings.clear();float[][] extra={{-190,-125},{274,18},{-185,270},{265,-245},{-295,-220},{230,275}};for(float[] p:extra)w.surreal.ufos.add(w.physics.createUfo(p[0],p[1]));for(PhysicsWorld.Body ship:w.surreal.ufos){Landing l=new Landing();l.ship=ship;landings.add(l);}addSupplies(w);}
+ private void addSupplies(GameWorld w){for(int i=0;i<RegionLayout.PLACES.length;i++)for(int j=0;j<3;j++){SurrealWorld.Pickup p=new SurrealWorld.Pickup();p.id=w.surreal.pickups.size();p.zone=-1;p.kind=j==0?PlayerEffects.MEDKIT:j==1?PlayerEffects.SPEED:6+i%4;p.x=RegionLayout.PLACES[i][0]-1+j;p.z=RegionLayout.PLACES[i][1]-5;p.y=Math.max(w.physics.terrainHeight(p.x,p.z),WaterField.level(w.currentChapter().environment,p.x,p.z))+.42f;w.surreal.pickups.add(p);}}
+ public void update(GameWorld w,float dt){for(Landing l:landings){float dx=l.ship.x-w.player.x,dz=l.ship.z-w.player.z;if(dx*dx+dz*dz>52*52)continue;l.timer-=dt;
+   if(l.state==0&&l.timer<=0){l.state=1;l.timer=4;for(int n=0;n<2;n++){GameWorld.Actor a=w.spawnCreature(GameWorld.ALIEN,l.ship.x+(n-.5f)*1.1f,l.ship.z);a.y=l.ship.y-.7f;a.hovering=true;a.peaceful=true;a.visitor=true;l.visitors.add(a);}GameWorld.Actor drone=w.spawnCreature(GameWorld.SCAN_DRONE,l.ship.x,l.ship.z+1);drone.y=l.ship.y-1;drone.hovering=true;drone.peaceful=true;drone.visitor=true;l.visitors.add(drone);w.banner="ИЗ ЛУЧА СПУСКАЮТСЯ НЕИЗВЕСТНЫЕ";w.bannerTime=2.5f;}
+   if(l.state==1){boolean down=true;for(GameWorld.Actor a:l.visitors){if(a.dead)continue;float ground=Math.max(w.physics.terrainHeight(a.x,a.z),WaterField.depth(w.currentChapter().environment,a.x,a.z)>a.height?WaterField.level(w.currentChapter().environment,a.x,a.z)-a.height*.65f:-999);a.y=Math.max(ground,a.y-dt*1.9f);if(a.y>ground+.03f)down=false;else a.hovering=false;}if(down){l.state=2;l.timer=27;}}
+   else if(l.state==2){for(int i=0;i<l.visitors.size();i++){GameWorld.Actor a=l.visitors.get(i);if(a.dead||!a.peaceful)continue;float angle=w.cinematicTime*.20f+i*2.09f,tx=l.ship.x+(float)Math.sin(angle)*3.8f,tz=l.ship.z+(float)Math.cos(angle)*3.8f;a.vx=(tx-a.x)*.7f;a.vz=(tz-a.z)*.7f;a.x+=a.vx*dt;a.z+=a.vz*dt;a.yaw=(float)Math.atan2(a.vx,a.vz);}if(l.timer<=0){l.state=3;l.timer=6;for(GameWorld.Actor a:l.visitors)if(!a.dead&&a.peaceful)a.hovering=true;}}
+   else if(l.state==3){for(GameWorld.Actor a:l.visitors)if(!a.dead&&a.peaceful){a.y+=dt*2;a.x+=(l.ship.x-a.x)*dt;a.z+=(l.ship.z-a.z)*dt;}if(l.timer<=0){for(GameWorld.Actor a:l.visitors){if(a.peaceful&&!a.dead)w.enemies.remove(a);else{a.visitor=false;a.hovering=false;a.chunkX=(int)Math.floor(a.x/24);a.chunkZ=(int)Math.floor(a.z/24);}}l.visitors.clear();l.cycles++;l.state=0;l.timer=65;}}
+  }}
+ public boolean beam(PhysicsWorld.Body ship){for(Landing l:landings)if(l.ship==ship)return l.state==1||l.state==3;return false;}
+}

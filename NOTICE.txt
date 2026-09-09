@@ -1,0 +1,5 @@
+Black Swordsman 3D is an unofficial, non-commercial fan project.
+
+Berserk and its characters are the property of their respective rights holders. This project is not affiliated with, endorsed by, or distributed by the official rights holders.
+
+The game code, procedural 3D geometry, skeletal rigs, mobile physics simulation, Russian dialogue adaptation, interface, and generated title artwork in this package were created for this fan build. No manga panels, anime frames, commercial game models, music, or sound recordings are included.
