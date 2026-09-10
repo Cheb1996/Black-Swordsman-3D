@@ -1,0 +1,9 @@
+name: Import verified v9
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  ready:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo 'Waiting for the verified project bundle'
