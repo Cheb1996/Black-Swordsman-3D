@@ -1,12 +1,23 @@
 # Project workflow
 
 The canonical project is https://github.com/Cheb1996/Black-Swordsman-3D.
-The user requested that all future development happen in a checkout of this
-repository. Start from its current Git history, inspect `git status` and fetch
-remote updates before editing. Preserve unrelated user changes. Do not continue
-development in old scratch exports or Library ZIPs, and do not mirror repository
-files back to Library. Commit the completed work; follow the user's instructions
-for pushing branches and publishing builds. Never force-push shared history.
+The user's instruction on 2026-09-25 designates the current development
+conversation as the primary project chat and restores repository-based
+development. It supersedes the internal-only workflow from 2026-09-10.
+
+Develop only in a checkout of this repository. Inspect git status, verify
+origin, and fetch remote updates before editing. Preserve unrelated work.
+Commit completed changes and synchronize through an authorized Git connection
+or the connected GitHub API. Respect branch protections. Never force-push
+shared history or use CI credentials to work around missing local Git access.
+Do not mirror repository-backed files back to Library.
+
+The completed v14 release has source commit
+43bcc9513d1909102efb6946fbc9fde4ef3274f5. Its original v9-v14 history still
+needs to be imported before new game development starts: main currently
+contains the earlier v8 game. Preserve that completed work when reconciling
+the histories. Do not mistake these workflow edits for publication of v14.
+See PROJECT_WORKFLOW_RU.md for the handoff and import status.
 
 ## Layout and validation
 
